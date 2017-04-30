@@ -1,18 +1,21 @@
-#ÅäÖÃÀı×ÓÀ´×ÔÓÚspark 2.1.0°æ±¾
-#localµ¥»úÄ£Ê½   ÆäÖĞ[*] ¿ÉÒÔÉèÖÃÏß³ÌµÄ¿ªÆôÊı
-ĞŞ¸Ä conf/spark-env.sh
- ./bin/spark-submit --class org.apache.spark.examples.JavaWordCount --master local[*] ./examples/jars/spark-examples_2.11-2.1.0.jar README.md
+ï»¿#é…ç½®ä¾‹å­æ¥è‡ªäºspark 2.1.0ç‰ˆæœ¬
+##localå•æœºæ¨¡å¼   å…¶ä¸­[*] å¯ä»¥è®¾ç½®çº¿ç¨‹çš„å¼€å¯æ•°
+ä¿®æ”¹ conf/spark-env.sh
+     ./bin/spark-submit --class org.apache.spark.examples.JavaWordCount --master local[*] ./examples/jars/spark-examples_2.11-2.1.0.jar README.md
 
-#standalone Ä£Ê½
-ĞèÒªµÄÅäÖÃ
-1. slaves ÎÄ¼ş
-copy conf/slaves.template to slaves ½«localhostĞŞ¸ÄÎªslaveµÄÃû³Æ
-copy conf/spark-env.sh.template to spark-env.sh 
-Ìí¼ÓÒÔÏÂÅäÖÃ
-export JAVA_HOME=/usr/local/java #javaÂ·¾¶
-export SPARK_MASTER=spark_master #Ö÷½Úµã
-export SPARK_MASTER_PORT=7077 #¶Ë¿ÚºÅ
-export SPARK_WORK_CORS=1 #¹¤×÷Ïß³ÌºËÊı
-export SPARK_WORK_INSTANCES=1 #¹¤×÷Ïß³ÌÊµÀıÊı
-export SPARK_WORK_MEMORY=256m #¹¤×÷Ïß³ÌÔËĞĞÊ±Õ¼ÓÃÄÚ´æ
+##standalone æ¨¡å¼
+éœ€è¦çš„é…ç½®
+###slaves æ–‡ä»¶
+    copy conf/slaves.template to slaves å°†localhostä¿®æ”¹ä¸ºslaveçš„åç§°
+    copy conf/spark-env.sh.template to spark-env.sh 
+###æ·»åŠ ä»¥ä¸‹é…ç½®
+    export JAVA_HOME=/usr/local/java #javaè·¯å¾„
+    export SPARK_MASTER=smaster #ä¸»èŠ‚ç‚¹
+    export SPARK_MASTER_PORT=7077 #ç«¯å£å·
+    export SPARK_WORK_CORS=1 #å·¥ä½œçº¿ç¨‹æ ¸æ•°
+    export SPARK_WORK_INSTANCES=1 #å·¥ä½œçº¿ç¨‹å®ä¾‹æ•°
+    export SPARK_WORK_MEMORY=256m #å·¥ä½œçº¿ç¨‹è¿è¡Œæ—¶å ç”¨å†…å­˜
+   
+###æäº¤ä»»åŠ¡
+    ./bin/spark-submit --class org.apache.spark.examples.JavaSparkPi --master spark://master:7077 --executor-memory 1g --total-executor-cores 1 ./examples/jars/spark-examples_2.11-2.1.0.jar 100
 
