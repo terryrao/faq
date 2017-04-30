@@ -36,6 +36,9 @@
   禁用: systemctl disable firewalld.service
  
  
+## 5.将文件复制到某台远程机器上可以使用scp 如下：
+scp ./conf/spark-env.sh root@192.168.0.113:/usr/local/spark-2.1.0-bin-hadoop2.7/conf/spark-env.sh
+ 
  
  
  

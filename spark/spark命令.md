@@ -1,7 +1,8 @@
 ﻿#配置例子来自于spark 2.1.0版本
 ##local单机模式   其中[*] 可以设置线程的开启数
-修改 conf/spark-env.sh
-     ./bin/spark-submit --class org.apache.spark.examples.JavaWordCount --master local[*] ./examples/jars/spark-examples_2.11-2.1.0.jar README.md
+    修改 
+    conf/spark-env.sh
+    ./bin/spark-submit --class org.apache.spark.examples.JavaWordCount --master local[*] ./examples/jars/spark-examples_2.11-2.1.0.jar README.md
 
 ##standalone 模式
 需要的配置
