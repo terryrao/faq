@@ -30,3 +30,9 @@ Maven 用户可以继承 spring-boot-start-parent 工程获得相应的默认配
 最后一点，既然默认配置接收 spring 类型的占位符 ```${}``` ，那maven的就变成使用 ```@..@```占位符了（你可以在 maven properties ```resource.delimiter``` 里重写）
 
 
+@ImportResource 加载xml文件 
+ @EnableAutoConfiguration @SpringBootApplication 自动配置
+ You should only ever add one @EnableAutoConfiguration annotation. We generally recommend that you add it to your primary @Configuration class.
+@ComponentScan
+
+ @SpringBootApplication 等价于使用@Configuration @EnableAutoConfiguration @ComponentScan
