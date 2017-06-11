@@ -84,6 +84,51 @@ com.test.value=${random.long } # 随机int
 com.test.value=${random.int(10)}# 随机int10以内整数
 com.test.value=${random.int[10,20]} #10-20随机数
 
+##spring boot 属性加载顺序
+1.在命令行中传入的参数
+2.SPRING_APPLICATION_JSON 中的属性。SPRING_APPLICATION_JSON 是以 json 格式配置系统变量
+3.java:comp/dev 中的JNDI属性
+4.java 的系统属性，可以通过 System.getProperties() 获取的内容
+5.操作系统的变量
+6.通过random.*配置的随机属性
+7.位于当前jar包之外针对不同 {profile} 环球的配置文件内容，例如 application-{profile}.properties
+8.位于当前应用jar包之内，针对不同 {profile} 环境的配置文件内容，
+9.位于当前应用jar包外的 application.properties 的配置内容
+10.位于当前应用jar包之内的 application.properties 的配置内容
+11.在@Configuration注解修改的类中，通过@PropertySource 注解定义的属性
+12.应用默认属性，使用 SpringApplication.setDefaultProperties 的定义内容
+
+优先级按上面的顺序由高到低，数字越少优先级越高
+
+
+## actuator
+###原生端点
+三大类
+1.应用配置类
+2.度量指标类
+3.操作控制类
+
+
+##服务治理 Spring Cloud Eureka
+
+主要用来实现服务自动化注册与发现
+
+###服务注册
+注册中心：每个服务都要在注册中心登记自己的服务，将主机与端口号、版本号、通信协议等一些附加信息告诉给注册
+中心，注册中心按服务名分类组织服务清单
+
+###服务发现
+调用方向注册中心咨询服务，并获限所有的实例清单，使用某种策略（后在面的负载均衡中实现）选择一条可用的服
+务，以实现对具体服务实现的访问
+
+###Netflix Eureka
+其它语言需要实现自己的 Eureka 客户端与服务端通信（Eureka 服务端是通过 RestFul 提供服务治理的 ）
+Eureka 服务端即注册中心（与 Zookeeper 类似）
+
+
+
+
+
 
 
 
