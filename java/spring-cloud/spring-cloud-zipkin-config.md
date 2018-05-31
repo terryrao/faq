@@ -1,5 +1,8 @@
 # zipkin sender
 
+教程：
+https://yq.aliyun.com/articles/78128?201758
+
 一般的教程都有说明不再展开，记录一下踩过的坑。
 
 如果服务里引用了 amq 包，原来可以发送日志到 zipkin server 的行为就会突然消失
