@@ -36,7 +36,7 @@ synchronized 用的锁是存在 java 对象头里的。
 ### 原子操作的实现原理 
 
 CPU 术语定义
-<style> table th:first-of-type { width: 100px; } </style>
+
 | 术语 | 英文 | 解释 |
 | :-----------: | :------------: | :-----: |
 | 缓存行 | cache line | 缓存的最小操作单位 |
