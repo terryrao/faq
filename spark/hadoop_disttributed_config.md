@@ -63,8 +63,8 @@ Make the HDFS directories required to execute MapReduce jobs：
     bin/hdfs dfs -cat output/*
 	sbin/stop-dfs.sh
 	
-##7.在单点上使用yarn配置
-###1)configuure etc/hadoop/mapred-site.xml
+## 7.在单点上使用yarn配置
+### 1)configuure etc/hadoop/mapred-site.xml
 
 	<configuration>
 	    <property>
@@ -73,7 +73,7 @@ Make the HDFS directories required to execute MapReduce jobs：
 	    </property>
     </configuration>
 	
-###2)etc/hadoop/yarn-site.xml
+### 2)etc/hadoop/yarn-site.xml
 
 	<configuration>
 		<property>
@@ -88,9 +88,9 @@ Make the HDFS directories required to execute MapReduce jobs：
     ResourceManager - http://localhost:8088/
 	
 	
-#集群部署
+# 集群部署
 
-##1.vim /etc/profile
+## 1.vim /etc/profile
     
     export HADOOP_HOME=/usr/local/hadoop
     export HADOOP_MAPRED_HOME=$HADOOP_HOME
@@ -104,16 +104,16 @@ Make the HDFS directories required to execute MapReduce jobs：
 
     souce /etc/profile
 	
-##2.master节点设置slave
+## 2.master节点设置slave
 
     vim ${HADOOP_HOME}/etc/hadoop/slaves
 	master
 	slave1
 	slave2
 	
-##3.Master slaves 所有节点共同设置
+## 3.Master slaves 所有节点共同设置
  
-###1)vim etc/hadoop/core-site.xml
+### 1)vim etc/hadoop/core-site.xml
 
     <configuration>
 		<property>
@@ -126,7 +126,7 @@ Make the HDFS directories required to execute MapReduce jobs：
 		</property>
     </configuration>
 	
-###2)vim etc/hadoop/hdfs-site.xml
+### 2)vim etc/hadoop/hdfs-site.xml
 
     <configuration>
 		<property>
@@ -158,7 +158,7 @@ Make the HDFS directories required to execute MapReduce jobs：
         </property>
 	</configuration>
 	
-###4) vim etc/hadoop/yarn-site.xml
+### 4) vim etc/hadoop/yarn-site.xml
 	
 	<property>
         <name>yarn.resourcemanager.hostname</name>
