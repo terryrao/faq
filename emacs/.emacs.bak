@@ -1,0 +1,59 @@
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes '(solarized-dark))
+ '(custom-safe-themes
+   '("fee7287586b17efbfda432f05539b58e86e059e78006ce9237b8732fde991b4c" default))
+ '(package-archives
+   '(("melpa" . "https://melpa.org/packages/")
+	 ("gnu" . "https://elpa.gnu.org/packages/")
+	 ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+	 ("org" . "http://orgmode.org/elpa/")
+	 ("melpa-stable" . "https://stable.melpa.org/packages/")))
+ '(package-selected-packages
+   '(go-autocomplete go-complete go-mode auto-complete solarized-theme))
+ '(tab-width 4))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+(add-to-list 'default-frame-alist
+             '(font . "Consolas-14"))
+
+
+
+
+;; 这些都是自己添加的
+;; Init the auto complete modules
+(ac-config-default)
+(global-auto-complete-mode t)
+(require 'go-autocomplete)
+(require 'auto-complete-config)
+
+;; Enable auto-complete
+(auto-complete-mode 1)
+
+;; Define keymaps
+(define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+(global-set-key (kbd"C-c C-c") 'godef-jump)
+
+;; Set some quick config vals
+(setq ac-auto-start 1)
+(setq ac-auto-show-menu 0.8)
+
+;; Just to make sure go tools are enabled
+(add-to-list 'exec-path "H://program//go/bin")
+
+;; Automatically format code on save
+(setq gofmt-command "goimports")
+(add-hook 'before-save-hook 'gofmt-before-save)
+(add-hook 'completion-at-point-functions 'go-complete-at-point)
+;; (add-hook 'go-mode-hook 'auto-complete-for-go)
+;; always show line numbers                         
+(global-linum-mode 1)
+;;set format
+(setq linum-format "%d| ")  
